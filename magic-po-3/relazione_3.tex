@@ -1,0 +1,94 @@
+\documentclass[a4paper]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{scrextend}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\renewcommand{\contentsname}{Indice}
+\newcommand{\parnosep}[1]{\vspace*{-\baselineskip}\paragraph{#1}}
+\newcommand{\subparnosep}[1]{\vspace*{-\baselineskip}\subparagraph{#1}}
+%\newcommand\measurepage{\dimexpr\pagegoal-\pagetotal-\baselineskip\relax}
+\renewcommand{\labelenumii}{\theenumi\theenumii.}
+\renewcommand{\theenumii}{.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\theenumi\theenumii\theenumiii.}
+\renewcommand{\theenumiii}{.\arabic{enumiii}}
+\newcommand{\groupname}{Gruppo 1}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{Pagina \thepage \hspace{1pt} di \pageref{LastPage}}
+
+\title{\groupname\\Assignment 3\\Fabio Rosada, Federico Fontolan, Andrea Giacomazzi, Feliks Hibraj}
+\date{\today}
+
+\begin{document}
+	
+	
+	
+	\pagenumbering{gobble}
+
+	\maketitle
+	
+	\newpage
+	\tableofcontents	
+	\pagenumbering{arabic}
+	
+	
+	\section{Componenti del gruppo}
+	\begin{itemize}[label={$\bullet$}]
+		\item Federico Fontolan 854230
+		\item Andrea Giacomazzi 854522
+		\item Feliks Hibraj 854342
+		\item Fabio Rosada 851772
+	\end{itemize}
+	
+	\newpage
+	
+	\section{MVC}
+	Abbiamo implementato il pattern MVC facendo in modo che la GUI leggesse direttamente dal gioco (oggetto model) quel che serve all'utente per poter giocare (giocatori, mano, campi e stack e i valori associati ad essi), e segnalando all'interfaccia grafica i cambiamenti attraverso il pattern observer.\\
+
+	%ToDo: qui
+
+	\section{GUI}
+	La parte grafica è stata implementata utilizzando Java Swing e sfruttando un tool di Intellij che permette un comodo posizionamento degli elementi nel frame. Questo tool è stato utilizzato però solo per posizionare i pannelli principali, in quanto le carte (implementate come bottoni) vengono aggiunte ai pannelli in modo dinamico.\\
+	A causa di problemi riscontrati con l'autoridimensionamento automatico di java swing, abbiamo settato tutte le dimensioni dei pannelli a mano, prendendo le dimensioni dello schermo e dividendolo in base alle dimensioni scelte.
+	\subsection{Pannelli}
+	La schermata è divisa in 3 parti principali: stack, campo e info.
+	Nello stack, che è il pannello più a sinistra, verranno inserite le carte quando saranno nello stack di gioco. In questo pannello potranno essere inserite delle EffectCard.\\
+	Nel campo, pannello centrale, saranno visualizzate sia le mani che le creature in campo, rispettivamente con dei CardButton e dei CreatureSimpleButton.
+	L'ultimo pannello a destra invece contiene le informazioni su deck, vita dei giocatori, turno e fase corrente, subito sotto invece è presente un pulsante che permette di skippare la scelta dei target (e quindi la fase corrente di conseguenza), e sotto questo bottone è presente un pannello dove potranno essere visualizzati i messaggi di gioco (in particolare saranno presenti gli ultimi 10 messaggi, che scorreranno verso il basso ad ogni nuovo messaggio).
+	\subsection{Targettable}
+	Per tutti quegli elementi del gioco che possono essere targettati sono stati utilizzati dei bottoni che verranno aggiunti in campo dinamicamente e muteranno il loro effetto in base al loro stato (targettabili o non).
+	\subsubsection{Carte}
+	Le carte sono state implementate tramite dei bottoni ai quali è stato modificato lo sfondo con l'immagine della carta. Lasciando il mouse per qualche secondo sopra la carta uscirà un "suggerimento" che mostrerà il suo effetto in modo più leggibile.\\
+	La classe CardButton contiene alcuni metodi che permettono di girarla e di renderla non-selezionabile. In questo ultimo caso la carta viene resa leggermente più piccola e l'immagine trasformata in bianco e nero, così da far capire subito a colpo d'occhio che non è selezionabile.\\
+	Contiene anche alcuni metodi per ritornare informazioni di vario genere sulla carta contenuta, particolarmente importante per il progetto è il metodo \textit{getButtonTargetIndex()} che ritorna il valore da restituire alle request e che quindi permette il funzionamento del gioco.
+	\subsubsection{Effetti e Creature}
+	Non essendo dotati di immagine, in questo caso abbiamo optato per dei semplici JButton, che saranno di color lilla se quando potranno essere selezionati, mentre saranno di colore grigio quando non potranno essere selezionati.
+	\\Anche in questo caso è stato inserito il metodo che ritorna l'indice da consegnare alle richieste.
+	\subsubsection{Player}
+	Sono bottoni "statici" in campo, e non vengono quindi inseriti e tolti dinamicamente.
+	\\Il meccanismo è lo stesso: saranno grigi quando non saranno selezionabili come target, mentre assumeranno un color lilla quando potranno essere dei target.
+
+
+	\section{Modifiche rilevanti al codice originale}
+	Nelle classi dove si aveva necessità di selezionare un particolare target sono state aggiunte alcune righe per "collegarle" alle classi Request e TargetRequest.
+    	In questo modo è stato possibile mettere in comunicazione la parte grafica con il codice originale senza troppi problemi, e sfruttando gli stessi indici di selezione che prima venivano
+    	usati per chiedere l'input da terminale.
+    	Proprio a questo scopo è stata aggiunta l'interfaccia Targettable spiegata precedentemente che recupera gli indici dei target.
+
+
+	%ToDo: scrivere qui
+	
+
+
+\end{document}

@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Componenti del gruppo}{1}{section.1}
+\contentsline {section}{\numberline {2}MVC}{2}{section.2}
+\contentsline {section}{\numberline {3}GUI}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Pannelli}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Targettable}{2}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Carte}{2}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Effetti e Creature}{3}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Player}{3}{subsubsection.3.2.3}
+\contentsline {section}{\numberline {4}Modifiche rilevanti al codice originale}{3}{section.4}

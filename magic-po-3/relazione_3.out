@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Componenti del gruppo}{}% 1
+\BOOKMARK [1][-]{section.2}{MVC}{}% 2
+\BOOKMARK [1][-]{section.3}{GUI}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Pannelli}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Targettable}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Carte}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Effetti e Creature}{subsection.3.2}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Player}{subsection.3.2}% 8
+\BOOKMARK [1][-]{section.4}{Modifiche rilevanti al codice originale}{}% 9
