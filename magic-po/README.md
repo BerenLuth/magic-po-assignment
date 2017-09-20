@@ -1,4 +1,4 @@
-# GIT COMMAND FOR DUMMIES (sora) #
+# GIT COMMAND FOR DUMMIES (tha means for @sora) #
 
 * git clone <URL> (copia il repository su pc)
 
